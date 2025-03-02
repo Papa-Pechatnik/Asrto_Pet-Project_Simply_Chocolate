@@ -1,0 +1,43 @@
+@import url("./normalize.css");
+@import url("./fonts.css");
+:root {
+    /*primary - головний        --color-primary: #111111 */
+    /*secondary - другорядний   --color-secondary:  #ffffff */
+    /*accent - акцентний        --color-accent:#FD9222 */
+    /*hover -                   --color-hover: #FCF1E0 */
+    /*subsidiary- додатковий    --color-subsidiary:#FD9222 */
+    /*success - успіх*/
+    /*error - помилка*/
+    /*info - */
+    /*wsrning - помилка*/
+
+    --color-primary: #111111;
+    --color-secondary: #ffffff;
+    --color-accent: #FD9222;
+    --color-hover: #FCF1E0;
+    --color-subsidiary: #C6C6C6;
+    
+    --color-primary-bg: #FAFAFA;
+    --color-secondary-bg: #1E1823;
+
+    --font-primary: "Montserrat", Aceh, "Lucida Console", Monaco, sans-serif;
+
+    --width-container: 1200px;
+
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-primary);
+    text-rendering: optimizeLegibility;
+    background: var(--color-primary-bg);
+}
+
+.container {
+    --pad-container: clamp(1.25rem, 0.4762rem + 3.1746vw, 2rem);/* 390 - 20px 767px - 32px*/
+    margin-inline: auto;
+    max-width: var(--width-container);
+    width: 100%;
+    padding: 0 var(--pad-container);
+}
+
