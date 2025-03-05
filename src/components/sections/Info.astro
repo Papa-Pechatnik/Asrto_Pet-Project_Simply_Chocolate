@@ -1,6 +1,107 @@
 ---
-
+let infoCards = [
+  {
+    id: 1,
+    srcImg: "/src/assets/icon-chocolate_bar.svg",
+    altImg: "icon-chocolate_bar",
+    title: "Unsurpassed taste",
+    text: "Crafted with the finest quality cocoa beans and a dedication to perfection, each bite is a decadent experience that simply cannot be matched. Savor the richness and complexity of our Unsurpassed Taste and discover a new level of chocolate bliss.",
+  },
+  {
+    id: 2,
+    srcImg: "/src/assets/icon-coin.svg",
+    altImg: "icon-coin",
+    title: "Affordable price",
+    text: "Indulge in high-quality chocolate without breaking the bank with Simply Chocolate's selection of affordable treats. Enjoy mouth-watering truffles and velvety chocolate bars without sacrificing taste or quality. Browse our selection and indulge in affordable luxury today.",
+  },
+  {
+    id: 3,
+    srcImg: "/src/assets/icon-spoon.svg",
+    altImg: "icon-spoon",
+    title: "Own production",
+    text: "IWe take pride in our own production process, ensuring that every step is carefully crafted to perfection. From selecting the finest ingredients to handcrafting each piece, our attention to detail is evident in every bite.",
+  },
+];
 ---
+
 <section class="info">
-info
+  <div class="container">
+    <ul class="list-items">
+      {
+        infoCards.map((item) => (
+          <li class="item">
+            <div class="item__imgbox flex-center">
+              <img class="item__imgbox-img" src={item.srcImg} alt={item.altImg} />
+            </div>
+            <h3 class="item__title h3-title">{item.title}</h3>
+            <p class="item__text spacing-02">{item.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </section>
+
+<style>
+  .info {
+    --info-padding: clamp(1.429rem, -0.782rem + 7.937vw, 3.571rem);
+    padding-top: var(--info-padding);
+    padding-bottom: var(--info-padding);
+    background-color: var(--color-secondary-bg);
+  }
+  .list-items {
+    --step-gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(308px, 1fr));
+    justify-items: center;
+    column-gap: var(--step-gap);
+    row-gap: clamp(20px, 5vw, 32px);
+  }
+
+  .item {
+    
+    position: relative;
+    max-width: 366px;
+    padding-right: 28px;    
+  }
+  .item:not(:last-child)::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 0;
+    margin-right: calc((var(--step-gap) / 2) * (-1));
+    transform: translateY(-50%);
+    width: 1px;
+    height: 50%;
+    background-color: var(--color-secondary);
+    color: brown;
+  }
+
+  .item__imgbox {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: 1px solid var(--color-secondary);
+  }
+
+  .item__imgbox-img {
+    width: 32px;
+    height: auto;
+  }
+
+  .item__title {
+    margin-top: 20px;
+        
+  }
+  .item__text {
+    margin-top: 18px;
+    color: var(--color-tertiary);
+  }
+
+  @media screen and (max-width: 1023.98px) {
+.item:not(:last-child)::before {
+  display: none;
+}
+  } 
+
+</style>
