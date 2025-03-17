@@ -59,10 +59,9 @@ let infoCards = [
   }
 
   .item {
-    
     position: relative;
     max-width: 366px;
-    padding-right: 28px;    
+    padding-right: 28px;
   }
   .item:not(:last-child)::before {
     position: absolute;
@@ -91,7 +90,6 @@ let infoCards = [
 
   .item__title {
     margin-top: 20px;
-        
   }
   .item__text {
     margin-top: 18px;
@@ -99,9 +97,13 @@ let infoCards = [
   }
 
   @media screen and (max-width: 1023.98px) {
-.item:not(:last-child)::before {
-  display: none;
-}
-  } 
-
+    .item:not(:last-child)::before {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 766.98px) {
+    .item {
+      max-width: 576px;
+    }
+  }
 </style>
