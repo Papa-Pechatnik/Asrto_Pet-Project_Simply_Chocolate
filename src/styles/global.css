@@ -14,7 +14,7 @@
     --color-primary: #111111;
     --color-secondary: #ffffff;
     --color-tertiary: #ffffffb3; /*rgba(255, 255, 255, 0.7)*/
-    
+
     --color-accent: #fd9222;
     --color-hover: #fcf1e0;
     --color-subsidiary: #c6c6c6;
@@ -25,7 +25,26 @@
     --font-family-primary: "Montserrat", "Aceh", "Lucida Console", "Monaco", sans-serif;
     --font-size-primary: 14px; /* 14px */
 
+    --gap-primary: 1.14285rem; /* 16px */
+    --gap-secondary: 1.2857rem;/* 18px; */
+
+    --indent-50-32: clamp(2.286rem, 0.956rem + 4.775vw, 3.571rem);
+    --indent-128-72: clamp(5.143rem, 3.217rem + 6.914vw, 9.143rem);
+
     --width-container: 1200px;
+    /*
+    @media (max-width: 1023.98px) {
+    :root {
+        --gap-secondary: 2rem;
+    }
+}
+
+@media (max-width: 539.98px) {
+    :root {
+        --gap-secondary: 1.25rem;
+    }
+}
+    */
 }
 
 .container {
@@ -36,19 +55,83 @@
     padding: 0 var(--pad-container);
 }
 
+.section-bottom {
+    margin-bottom: var(--indent-128-72);
+}
+
 .h3-title {
     font-weight: 600;
     font-size: 18px;
     color: var(--color-secondary);
 }
 
+.text-h2 {
+    font-size: clamp(1.429rem, 1.133rem + 1.061vw, 1.714rem); /* 390 - 20px 767px - 24px*/
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--color-primary);
+}
+
+.text-h3 {
+    font-size: 18px;
+    line-height: auto;
+    letter-spacing: -0.03em;
+}
+
+.text-title {
+    font-family: var(--font-family-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.text {
+    font-family: var(--font-family-primary);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.29;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+}
+
+.text-accent {
+    color: var(--color-accent);
+}
+
 .spacing-02 {
     letter-spacing: -0.02em;
 }
 
+.spacing-03 {
+    letter-spacing: -0.03em;
+}
 
 .flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.flex-col-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1023.98px) {
+    :root {
+        --gap-secondary: 2rem;
+    }
+}
+
+@media (max-width: 766.98px) {
+    .text-title {
+        line-height: 1.17;
+    }
+}
+
+@media (max-width: 539.98px) {
+    :root {
+        --gap-secondary: 1.25rem;
+    }
 }

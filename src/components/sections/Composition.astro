@@ -1,9 +1,255 @@
 ---
+import { Image } from "astro:assets";
 
+const Cards = [
+  {
+    title: "milk chocolate",
+    subtitle: "chocolate",
+    alt: "chocolate",
+    src: "/src/assets/images/milk-chocolate.png",
+    description:
+      "Milk chocolate is a solid chocolate confectionery containing cocoa, sugar and milk. It is the most consumed type of chocolate. Chocolate was originally sold and consumed as a beverage in pre-Columbian times. Although four-fifths of all milk chocolate is sold in the United States and Europe.",
+  },
+  {
+    title: "milk",
+    subtitle: "milk",
+    alt: "milk",
+    src: "/src/assets/images/milk.png" ,
+    description:
+      "Milk is a white liquid food produced by the mammary glands of mammals. It is the primary source of nutrition for young mammals (including breastfed human infants) before they are able to digest solid food.Early-lactation milk, which is called colostrum, contains antibodies that strengthen the immune system.",
+  },
+  {
+    title: "nuts",
+    subtitle: "nuts",
+    alt: "nuts",
+    src: "/src/assets/images/nuts.png",
+    description:
+      "Almonds, pistachios, and walnuts are some types of nuts that contain healthy nutrients. When eaten as part of a nutrient-dense diet, these 9 nuts may offer benefits such as reducing your risk of heart disease. They’re a good source of fiber, healthy fats, and plant protein. Plus, they’re great on their own.",
+  },
+  {
+    title: "sEMI - SWEET CHOCOLATE",
+    subtitle: "sweet chocolate",
+    alt: "glaze",
+    src: "/src/assets/images/chocolate-glaze.png",
+    description:
+      "Semi-sweet chocolate has a cocoa solid content of 35 to 65%. One of the best ways to gain an understanding of this type of chocolate is to compare it to a different type of chocolate. Semisweet is darker than milk chocolate. In a taste comparison, it has a slightly bitter taste whereas milk chocolate is sweeter.",
+  },
+];
 ---
-<section class="composition">
-    <h2>
-        it all adds up to one exceptional
-        <span>taste</span>sensation
-    </h2>
+
+<section class="composition section-bottom">
+  <div class="container">
+    <header class="composition-header flex-col-center">
+      <div class="composition-header__wrap flex-col-center">
+        <h2 class="text-h2 text-title">
+          it all adds up to one
+          <p>exceptional <span class="text-accent">taste</span> sensation</p>
+        </h2>
+        <p class="text">
+          At Simply Chocolate, we believe that the secret to exceptional chocolate is in the details. From the sourcing
+          of the finest ingredients to the careful crafting of each individual piece, every step of our process adds up
+          to one exceptional taste sensation.
+        </p>
+      </div>
+    </header>
+    <ul class="cards">
+      {
+        Cards.map((item, index) => (
+          <li class:list={["card", `card${index + 1}`]}>
+            <div class="card__wrap">
+              <div class:list={["card-front card--size", `card-front__card${index + 1}--color`]}>
+                <div class="card__image flex-center">
+                  <Image class="card__image-img" src={item.src} alt={item.alt} width="224" height="171" quality="high" />
+                </div>
+                <p class="card__title text-title spacing-02">{item.title}</p>
+              </div>
+              <div class="card-back card--size">
+                <header>
+                  <h3 class="text-title text-h3">{item.title}</h3>
+                  <p class="back-subtitle">
+                    <span>{item.subtitle}</span>
+                    <span>the benefits</span>
+                  </p>
+                </header>
+                <p class="back-text text">{item.description}</p>
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </section>
+
+<style>
+  .composition-header {
+    margin-bottom: var(--indent-50-32);
+  }
+  .composition-header__wrap {
+    max-width: 34.715rem;
+    row-gap: clamp(1.714rem, 1.419rem + 1.061vw, 2rem);
+    text-align: center;
+  }
+
+  .cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(269px, 336px));
+    gap: var(--gap-secondary);
+    justify-content: center;
+    justify-items: center;
+    grid-template-areas: "chocolate milk nuts glaze";
+  }
+
+  .card {
+    position: relative;
+    display: inline-flex;
+    max-width: 24rem;
+    min-width: 19.2143rem;
+    width: 100%;
+    height: 19.2857rem;
+    cursor: pointer;
+  }
+
+  .card:hover .card__wrap {
+    transform: scale3d(1, 1, 1) rotateY(180deg);
+  }
+
+  .card__wrap {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    transform: scale3d(1, 1, 1);
+    transition: transform 0.5s cubic-bezier(0.25, 0.75, 0.25, 1.25);
+    transform-style: preserve-3d;
+  }
+
+  .card--size {
+    position: absolute;
+    top: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 1.0714rem;
+    border: 1px solid;
+
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+
+  .card1 {
+    grid-area: chocolate;
+  }
+  .card2 {
+    grid-area: milk;
+  }
+  .card3 {
+    grid-area: nuts;
+  }
+  .card4 {
+    grid-area: glaze;
+  }
+
+  .card-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 1.7857rem;
+    padding: 2rem;
+  }
+
+  .card-front__card1--color {
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+    border-color: var(--color-accent);
+  }
+
+  .card-front__card2--color,
+  .card-front__card4--color {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border-color: var(--color-accent);
+  }
+
+  .card-front__card3--color {
+    background-color: var(--color-secondary-bg);
+    color: var(--color-secondary);
+    border-color: var(--color-secondary-bg);
+  }
+
+  .card-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(1.429rem, 3.012rem + -1.848vw, 2rem);
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    transform: rotateY(180deg);
+  }
+
+  .back-subtitle {
+    display: flex;
+    column-gap: 0.4286rem;
+    margin-top: 0.5714rem;
+  }
+
+  .back-subtitle span {
+    font-family: var(--font-family-primary);
+    font-weight: 400;
+    font-size: 0.7143rem;
+    line-height: 120%;
+    color: var(--color-primary);
+
+    border-radius: 2.5rem;
+    padding: 0.4286rem 1.1429rem;
+    border: 1px solid var(--color-accent);
+    transition: background-color 0.3s;
+  }
+
+  .back-subtitle :nth-child(1):hover {
+    background-color: var(--color-accent);
+  }
+
+  .back-text {
+    text-align: justify;
+  }
+
+  .card__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card__image-img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .card__title {
+    font-size: 1rem;
+    line-height: 129%;
+  }
+
+  @media (max-width: 1199.98px) {
+    .cards {
+      grid-template-areas:
+        "chocolate glaze"
+        "milk nuts";
+    }
+
+    .card {
+      row-gap: 1.7857rem;
+    }
+  }
+
+  @media (max-width: 766.98px) {
+    .cards {
+      grid-template-areas:
+        "chocolate"
+        "milk"
+        "nuts"
+        "glaze"
+    }
+  }
+
+  @media (max-width: 539.98px) {
+  }
+</style>
