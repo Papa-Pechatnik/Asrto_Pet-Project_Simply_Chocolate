@@ -13,7 +13,7 @@
 
     --color-primary: #111111;
     --color-secondary: #ffffff;
-    --color-tertiary: #ffffffb3; /*rgba(255, 255, 255, 0.7)*/
+    --color-tertiary: #ffffffb3;
 
     --color-accent: #fd9222;
     --color-hover: #fcf1e0;
@@ -27,11 +27,16 @@
 
     --gap-primary: 1.14285rem; /* 16px */
     --gap-secondary: 1.2857rem;/* 18px; */
+    --gap-tertiary: 1.4286rem; /*20px*/
 
     --indent-50-32: clamp(2.286rem, 0.956rem + 4.775vw, 3.571rem);
+    --indent-28-20: clamp(1.429rem, 0.837rem + 2.122vw, 2rem);
     --indent-128-72: clamp(5.143rem, 3.217rem + 6.914vw, 9.143rem);
 
+    --radius-15: 1.071rem; /*15px*/
+
     --width-container: 1200px;
+    
     /*
     @media (max-width: 1023.98px) {
     :root {
@@ -48,7 +53,7 @@
 }
 
 .container {
-    --pad-container: clamp(1.429rem, 0.544rem + 3.175vw, 2.286rem); /* 390 - 20px 767px - 32px*/
+    --pad-container: clamp(1.429rem, 0.542rem + 3.183vw, 2.286rem); /* 390 - 20px 767px - 32px*/
     margin-inline: auto;
     max-width: var(--width-container);
     width: 100%;
@@ -57,12 +62,6 @@
 
 .section-bottom {
     margin-bottom: var(--indent-128-72);
-}
-
-.h3-title {
-    font-weight: 600;
-    font-size: 18px;
-    color: var(--color-secondary);
 }
 
 .text-h2 {
@@ -91,6 +90,10 @@
     line-height: 1.29;
     letter-spacing: -0.02em;
     color: var(--color-primary);
+}
+
+.text-center {
+    text-align: center;
 }
 
 .text-accent {
