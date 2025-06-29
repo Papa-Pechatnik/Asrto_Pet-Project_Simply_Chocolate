@@ -1,0 +1,31 @@
+---
+interface Props {
+  text: string;
+  link: string;
+}
+
+const { text, link } = Astro.props;
+---
+
+<button class="button">{text}</button>
+
+<style>
+  .button {
+    display: inline-block;
+    font-family: var(--font-family-primary);
+    font-weight: 600;
+    font-size: 1.286rem;
+    color: var(--color-secondary);
+    background-color: var(--color-accent);
+    padding: 1rem 2.8571rem;
+    border-radius: 7.1429rem;
+    border: 0;
+    transition: all 1s;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    color: var(--color-accent);
+    background-color: var(--color-hover);
+  }
+</style>

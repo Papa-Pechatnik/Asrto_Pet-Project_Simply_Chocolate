@@ -1,7 +1,119 @@
 ---
-
+import { Image } from "astro:assets";
+import ButtonOrange from "../elements/ButtonOrange.astro";
+import img1 from "/src/assets/images/video-poster.png";
 ---
 
 <section class="top-sellers section-bottom">
-  <h2><span>top</span>sellers</h2>
+  <div class="container">
+    <div class="top-sellers__wrap">
+      <h2 class="text-h2 text-title text-center"><em class="text-accent">top </em>sellers</h2>
+      <section class="grid-list">
+        <div class="grid-item item1">
+          <Image class="grid-item__img" src={img1} width={368} height={464} alt="111" />
+        </div>
+        <div class="grid-item item2">
+          <Image class="grid-item__img" src={img1} width={368} height={464} alt="111" />
+        </div>
+        <div class="grid-item item3">
+          <Image class="grid-item__img" src={img1} width={368} height={464} alt="111" />
+        </div>
+        <div class="item4">
+          <p class="text">
+            Crazy enough chocolate originates from a bean just like the coffee bean called Cacao. Cacao has been around
+            for thousands of years and was first discovered by the Native American tribe called the Mayans.
+          </p>
+        </div>
+        <div class="item5">
+          <ButtonOrange text="Buy now" link=""/>
+        </div>
+      </section>
+    </div>
+  </div>
 </section>
+
+<style>
+  .grid-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 368px));
+    grid-template-rows: auto auto;
+    justify-content: space-between;
+    column-gap: var(--gap-primary);
+    row-gap: 32px;
+    grid-template-areas:
+      "item1 item2 item3"
+      "item4 item4 item5";
+    margin-top: var(--indent-50-32);
+  }
+
+  .grid-item {
+    max-width: 26rem;
+    width: 100%;
+  }
+  .grid-item__img {
+    border-radius: var(--radius-15);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .item1, .item2, .item3 {
+    height: 33.1429rem;
+  }
+
+  .item1 {
+    grid-area: item1;
+  }
+
+  .item2 {
+    grid-area: item2;
+  }
+
+  .item3 {
+    grid-area: item3;
+  }
+
+  .item4 {
+    grid-area: item4;
+  }
+
+  .item5 {
+    justify-self: end;
+    grid-area: item5;
+  }
+
+  .text {
+    max-width: 29.2857rem;
+  }
+
+  @media (max-width: 1023.98px) {
+    .item3 {
+      display: none;
+    }
+
+    .grid-list {
+      grid-template-columns: repeat(2, minmax(300px, 368px));
+      justify-content: center;
+      grid-template-areas:
+        "item1 item2"
+        "item4 item5";
+    }
+  }
+
+  @media (max-width: 766.98px) {
+    .grid-list {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, auto);
+      justify-items: center;
+      grid-template-areas:
+        "item1"
+        "item4"    
+        "item2"
+        "item5";
+    }
+
+    .item5 {
+      justify-self: auto;
+    }
+}
+</style>

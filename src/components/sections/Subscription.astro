@@ -1,7 +1,40 @@
 ---
-
+import ButtonOrange from "../elements/ButtonOrange.astro";
 ---
 
 <section class="subscription">
-  <h2>explore our new chocolate first</h2>
+  <div class="container">
+    <div class="flex-center">
+      <div class="subscription-content flex-col-center">
+        <h2 class="text-title text-h2">explore our new<br>chocolate first</h2>
+        <p class="text">
+          From the velvety texture to the rich and complex flavor, our New Chocolate is a true indulgence that will
+          leave you craving more. Made with only the finest ingredients and handcrafted with the utmost care, each piece
+          is a work of art that is sure to please.
+        </p>
+        <ButtonOrange text="Subscribe" link="" />
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  .subscription {
+    width: 100%;
+    background-image: url("../../assets/background-images/background-subcribe.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: clamp(4.429rem, 3.69rem + 2.653vw, 5.143rem) 0; /*767-72 390-62 */
+  }
+
+  .subscription-content {
+    width: clamp(326px, 67%, 468px);
+    row-gap: 1.7143rem;
+  }
+
+  .subscription-content :is(.text-title, .text) {
+    color: var(--color-secondary);
+    text-align: center;
+  }
+</style>
