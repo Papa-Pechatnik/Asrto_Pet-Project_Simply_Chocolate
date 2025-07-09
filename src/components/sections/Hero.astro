@@ -53,9 +53,9 @@ import ButtonTransparent from "../elements/ButtonTransparent.astro";
     z-index: 0;
     position: relative;
     width: 100%;
-    max-height: 890px;
-    height: 79.5vh;
-    min-height: 600px;
+    max-height: 890px; /*!!!! решить вопрос с мобильной версией)*/
+    height: 79.5vh; /*!!!! решить вопрос с мобильной версией)*/
+    min-height: 600px; /*!!!! решить вопрос с мобильной версией)*/
   }
 
   .hero-content__title {
@@ -202,5 +202,13 @@ import ButtonTransparent from "../elements/ButtonTransparent.astro";
     .hero-content__btn-scroll {
       column-gap: 0.8571rem;
     }
+  }
+
+  @media screen and (max-height: 539.98px) {
+    .hero-wrap {
+    max-height: 25.7143rem;
+    height: 79.5vh;
+    min-height: 18.5714rem;
+  }
   }
 </style>

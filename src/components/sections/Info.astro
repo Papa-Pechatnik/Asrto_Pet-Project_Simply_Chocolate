@@ -2,21 +2,21 @@
 let infoCards = [
   {
     id: 1,
-    srcImg: "/src/assets/icon/icon-chocolate_bar.svg",
+    srcImg: "/src/icons/icon-chocolate_bar.svg",
     altImg: "icon-chocolate_bar",
     title: "Unsurpassed taste",
     text: "Crafted with the finest quality cocoa beans and a dedication to perfection, each bite is a decadent experience that simply cannot be matched. Savor the richness and complexity of our Unsurpassed Taste and discover a new level of chocolate bliss.",
   },
   {
     id: 2,
-    srcImg: "/src/assets/icon/icon-coin.svg",
+    srcImg: "/src/icons/icon-coin.svg",
     altImg: "icon-coin",
     title: "Affordable price",
     text: "Indulge in high-quality chocolate without breaking the bank with Simply Chocolate's selection of affordable treats. Enjoy mouth-watering truffles and velvety chocolate bars without sacrificing taste or quality. Browse our selection and indulge in affordable luxury today.",
   },
   {
     id: 3,
-    srcImg: "/src/assets/icon/icon-spoon.svg",
+    srcImg: "/src/icons/icon-spoon.svg",
     altImg: "icon-spoon",
     title: "Own production",
     text: "IWe take pride in our own production process, ensuring that every step is carefully crafted to perfection. From selecting the finest ingredients to handcrafting each piece, our attention to detail is evident in every bite.",
@@ -50,18 +50,18 @@ let infoCards = [
     background-color: var(--color-secondary-bg);
   }
   .list-items {
-    --step-gap: 18px;
+    --step-gap: 1.2857rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(308px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
     justify-items: center;
     column-gap: var(--step-gap);
-    row-gap: clamp(20px, 5vw, 32px);
+    row-gap: clamp(1.4286rem, 5vw, 2.2857rem);
   }
 
   .item {
     position: relative;
-    max-width: 366px;
-    padding-right: 28px;
+    max-width: 26.1429rem;
+    padding-right: 2rem;
   }
   .item:not(:last-child)::before {
     position: absolute;
@@ -77,22 +77,22 @@ let infoCards = [
   }
 
   .item__imgbox {
-    width: 62px;
-    height: 62px;
+    width: 4.4286rem;
+    height: 4.4286rem;
     border-radius: 50%;
     border: 1px solid var(--color-secondary);
   }
 
   .item__imgbox-img {
-    width: 32px;
+    width: 2.2857rem;
     height: auto;
   }
 
   .item__title {
-    margin-top: 20px;
+    margin-top: 1.4286rem;
   }
   .item__text {
-    margin-top: 18px;
+    margin-top: 1.2857rem;
     color: var(--color-tertiary);
   }
 
@@ -104,7 +104,7 @@ let infoCards = [
   
   @media screen and (max-width: 767.98px) {
     .item {
-      max-width: 576px;
+      max-width: 41.1429rem;
     }
   }
 </style>
