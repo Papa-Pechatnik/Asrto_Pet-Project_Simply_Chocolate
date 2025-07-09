@@ -1,6 +1,114 @@
 ---
+import Nav from "../bloсks/Nav.astro";
+import NavSM from "../bloсks/NavSM.astro";
+
+const tel = 380939365186;
+const email = "yurakarpovichminsk@gmail.com";
 
 ---
+
 <footer class="footer">
-    footer
+  <div class="container">
+    <section class="footer-wrap">
+      <h2 class="footer-title">
+        <em class="text-accent">Chocolate </em>a delicious
+        <br />
+        cure for a bad day
+      </h2>
+      <address class="address">
+        <section class="address-content">
+          <h3 class="address-content__title">Contact us</h3>
+          <ul class="address-link">
+            <li class="text address-link__item"><a class="address-link__item-link" href=`tel:+${tel}`>+{tel}</a></li>
+            <li class="text address-link__item">
+              <a class="address-link__item-link" href=`mailto:${email}`>{email}</a>
+            </li>
+          </ul>
+        </section>
+        <NavSM/>
+      </address>
+    </section>
+    <Nav className="nav-footer"/>
+
+  </div>
 </footer>
+
+<style>
+  .footer {
+    background-color: grey;
+    padding: var(--indent-50-32) 0;
+  }
+
+  .footer-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: clamp(3.571rem, 2.559rem + 1.848vw, 4.143rem); /*1200 - 58px 767-50px */
+    border-bottom: 1px solid #ffffff1a;
+  }
+
+  .footer-title {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: clamp(1.714rem, 1.419rem + 1.061vw, 2rem); /*767 -28px 390-24px */
+    font-style: normal;
+    line-height: 121%;
+    letter-spacing: -0.02em;
+    color: var(--color-secondary);
+  }
+
+  .address {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1.4286rem;
+    max-width: clamp(20rem, 50%, 22.8571rem);
+  }
+
+  .address-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .address-content__title {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: 1rem;
+    font-style: normal;
+    line-height: 129%;
+    color: var(--color-secondary);
+  }
+
+  .address-link {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.2857rem;
+  }
+
+  .address-link__item-link {
+    color: var(--color-secondary);
+    transition: color 0.5s;
+  }
+
+  .address-link__item-link:hover {
+    color: var(--color-accent);
+  }
+
+
+
+  @media screen and (max-width: 767.98px) {
+    .footer-wrap {
+        flex-direction: column;
+        row-gap: var(--indent-50-32);
+        padding-bottom: var(--indent-50-32);
+    }
+    .address-content {
+        row-gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 539.98px) {
+    .footer-title {
+      line-height: 117%;
+    }
+  }
+</style>

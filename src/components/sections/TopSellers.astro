@@ -4,7 +4,7 @@ import ButtonOrange from "../elements/ButtonOrange.astro";
 import img1 from "/src/assets/images/video-poster.png";
 ---
 
-<section class="top-sellers section-bottom">
+<section id="top-sellers" class="top-sellers section-bottom">
   <div class="container">
     <div class="top-sellers__wrap">
       <h2 class="text-h2 text-title text-center"><em class="text-accent">top </em>sellers</h2>
@@ -100,7 +100,7 @@ import img1 from "/src/assets/images/video-poster.png";
     }
   }
 
-  @media (max-width: 766.98px) {
+  @media screen and (max-width: 767.98px) {
     .grid-list {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(4, auto);

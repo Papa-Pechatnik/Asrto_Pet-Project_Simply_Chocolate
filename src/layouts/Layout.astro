@@ -1,4 +1,6 @@
 ---
+import "../styles/normalize.css";
+import "@fontsource-variable/montserrat";
 import "../styles/global.css";
 ---
 
@@ -9,11 +11,14 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>SIMPLY CHOCOLATE</title>
   </head>
   <body>
     <slot />
   </body>
+  <script>
+    import "../js/nav.js";
+  </script>
 </html>
 
 <style>
@@ -28,5 +33,6 @@ import "../styles/global.css";
     color: var(--color-primary);
     text-rendering: optimizeLegibility;
     background: var(--color-primary-bg);
+    scroll-behavior: smooth;
   }
 </style>

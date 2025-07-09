@@ -1,6 +1,63 @@
 ---
-
+import { Image } from "astro:assets";
+import logo from "../../../public/logo.svg";
+import Nav from "../bloсks/Nav.astro";
+import NavSM from "../bloсks/NavSM.astro";
 ---
+
 <header class="header">
-    header
+  <div class="container">
+    <div class="header-wrap">
+      <Image class="logo" src={logo} width={213} height={24} alt="logo" />
+      <button class="nav-button" type="button"> = </button>
+      <section class="header-nav">
+        <Nav className="nav-header" />
+        <NavSM className="nav-header" />
+      </section>
+    </div>
+  </div>
 </header>
+
+<style>
+  .logo {
+    width: clamp(12.0715rem, 24%, 15.2144rem);
+    height: auto;
+  }
+  .header-wrap,
+  .header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-wrap {
+    column-gap: 10%;
+    margin-top: var(--indent-24-20);
+    margin-bottom: var(--indent-32-14);
+  }
+
+  .header-nav {
+    max-width: 52.5714rem;
+    width: 100%;
+    column-gap: 4%;
+  }
+
+  .nav-button {
+    display: none;
+  }
+
+  @media screen and (max-width: 1023.98px) {
+    .nav-button {
+        display: inline-block;
+      width: clamp(2rem, 1.704rem + 1.061vw, 2.286rem);
+      aspect-ratio: 1;
+      background-color: transparent;
+      border-color: transparent;
+      padding: 0;
+    }
+
+    .header-nav {
+      display: none;
+    }
+  }
+</style>

@@ -1,6 +1,206 @@
 ---
-
+import { Picture } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import bgImg from "/src/assets/background-images/background-hero.png";
+import ButtonOrange from "../elements/ButtonOrange.astro";
+import ButtonTransparent from "../elements/ButtonTransparent.astro";
 ---
+
 <section class="hero">
-hero
+  <div class="container">
+    <div class="hero-wrap">
+      <Picture
+        class="hero-wrap__bg"
+        src={bgImg}
+        alt="Описание изображения"
+        widths={[320, 540, 768, 992, 1136]}
+        sizes="(max-width: 375px) 100vw, (max-width: 576px) 100vw, (max-width: 768px) 100vw, (max-width: 992px) 100vw, 100vw"
+        formats={["avif", "webp", "jpeg"]}
+        loading="lazy"
+        decoding="async"
+      />
+      <section class="hero-content">
+        <div class="hero-content__wrap">
+          <p class="hero-content__title">
+            Treat yourself or a loved one to our finest ingredients for a moment of pure delight!
+          </p>
+          <div class="hero-content__btn">
+            <div class="hero-content__btn-button flex-center">
+              <ButtonOrange className="button-md" text="Buy now" link="#" />
+              <ButtonTransparent className="button-md button--white" text="How it’s made" link="#" />
+            </div>
+            <div class="hero-content__btn-scroll flex-center">
+              <a class="btn-scroll flex-center" href="#subscription">
+                <p class="btn-scroll__text button-transition">scroll down</p>
+                <button class="btn-scroll__button button-transition flex-center">
+                  <Icon name="icon-arrow-down" class="button-transition" width={14} />
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </section>
+
+<style>
+  .hero {
+    padding-bottom: 5.143rem;
+  }
+
+  .hero-wrap {
+    z-index: 0;
+    position: relative;
+    width: 100%;
+    max-height: 890px;
+    height: 79.5vh;
+    min-height: 600px;
+  }
+
+  .hero-content__title {
+    max-width: 34.5714rem;
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(1.429rem, 0.837rem + 2.122vw, 2rem);
+    line-height: 121%;
+    letter-spacing: -0.03em;
+    color: var(--color-secondary);
+  }
+
+  .hero-wrap__bg {
+    --bg-position: 18%;
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: calc(50% + var(--bg-position)) center;
+    border-radius: 30px;
+  }
+
+  .hero-content {
+    width: inherit;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    padding: clamp(1.429rem, -0.049rem + 5.305vw, 2.857rem);
+  }
+
+  .hero-content__wrap {
+    --gap-content: 2.2857rem;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--gap-content);
+  }
+
+  .hero-content__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1rem;
+    row-gap: inherit;
+    flex-wrap: wrap;
+  }
+
+  .hero-content__btn-button {
+    column-gap: inherit;
+  }
+
+  .hero-content__btn-scroll {
+    column-gap: inherit;
+    cursor: pointer;
+  }
+
+  .btn-scroll {
+    column-gap: inherit;
+  }
+
+  .btn-scroll__text {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 129%;
+    letter-spacing: -0.03em;
+    color: var(--color-secondary);
+    text-wrap: nowrap;
+  }
+
+  .btn-scroll__button {
+    width: 2.7143rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    color: var(--color-accent);
+    border: none;
+    cursor: pointer;
+  }
+
+  [data-icon="icon-arrow-down"] {
+    color: inherit;
+    width: 1rem;
+    aspect-ratio: 1;
+  }
+
+  @media (hover: hover) {
+    .btn-scroll:is(:hover, :focus) .btn-scroll__text {
+    color: var(--color-accent);
+  }
+
+  .btn-scroll:is(:hover, :focus) .btn-scroll__button {
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+  }
+
+  .btn-scroll__text:is(:hover, :focus) ~ .btn-scroll__button {
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+  }
+  }
+
+  @media (hover: none) {
+    .btn-scroll:is(:active, :focus) .btn-scroll__text {
+    color: var(--color-accent);
+  }
+
+  .btn-scroll:is(:active, :focus) .btn-scroll__button {
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+  }
+
+  .btn-scroll__text:is(:active, :focus) ~ .btn-scroll__button {
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+  }
+  }
+
+  @media screen and (max-width: 1023.98px),
+    screen and (min-height: 768px) and (max-height: 1023.98px) and (orientation: portrait) {
+    .hero {
+      padding-bottom: 3.5714rem;
+    }
+
+    .hero-wrap__bg {
+      --bg-position: 33%;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .btn-scroll__text {
+      font-size: 0.8571rem;
+      line-height: 117%;
+    }
+  }
+
+  @media screen and (max-width: 539.98px) {
+    .hero {
+      padding-bottom: 5.1429rem;
+    }
+
+    .hero-content__btn-scroll {
+      column-gap: 0.8571rem;
+    }
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+
+const linkTelegram = "#";
+const linkLinkendin = "#";
+---
+
+<nav class:list={["nav-sm", `${[className]}`]} aria-label="navigation sm">
+  <ul class="sm-list">
+    <li class="sm-item">
+      <a class="sm-item__link flex-center" href={linkTelegram}>
+        <Icon class="sm-item__link-icon" name="icon-telegram" />
+      </a>
+    </li>
+    <li class="sm-item">
+      <a class="sm-item__link flex-center" href={linkLinkendin}>
+        <Icon class="sm-item__link-icon" name="icon-linkedin" />
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .sm-list {
+    display: flex;
+    align-items: center;
+    column-gap: clamp(1rem, 0.704rem + 1.061vw, 1.286rem); /*767 - 18  390 - 14 */
+  }
+
+  .sm-item__link-icon {
+    font-size: clamp(1.571rem, 1.424rem + 0.531vw, 1.714rem); /*767 - 24  390 - 22 */
+    transition: color 0.5s; 
+  }
+
+  .nav-header .sm-item__link-icon {
+    color: var(--color-primary);
+  }
+
+  :is(.nav-header, .nav-footer) .sm-item__link-icon:hover {
+    color: var(--color-accent);
+  }
+</style>

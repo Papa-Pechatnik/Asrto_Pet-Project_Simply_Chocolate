@@ -1,30 +1,31 @@
 ---
 interface Props {
+  className: string;
   text: string;
   link: string;
 }
 
-const { text, link } = Astro.props;
+const { className, text, link } = Astro.props;
 ---
 
-<button class="button">{text}</button>
+<button class:list={["button button-transition", `${[className]}`]}>{text}</button>
 
 <style>
   .button {
     display: inline-block;
     font-family: var(--font-family-primary);
-    font-weight: 600;
-    font-size: 1.286rem;
     color: var(--color-secondary);
     background-color: var(--color-accent);
-    padding: 1rem 2.8571rem;
+    padding: clamp(0.857rem, 0.709rem + 0.531vw, 1rem) clamp(1.929rem, 0.894rem + 3.714vw, 2.929rem);
     border-radius: 7.1429rem;
+    text-wrap: nowrap;
     border: 0;
     transition: all 1s;
     cursor: pointer;
+    
   }
 
-  .button:hover {
+  .button:is(:hover, :focus) {
     color: var(--color-accent);
     background-color: var(--color-hover);
   }
